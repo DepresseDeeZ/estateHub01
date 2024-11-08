@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FOOTER_LINKS, FOOTER_CONTACT_INFO, SOCIALS } from '../components/properties/data';
+import {
+  FOOTER_LINKS,
+  FOOTER_CONTACT_INFO,
+  SOCIALS,
+} from "../components/properties/data";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl font-bold text-slate-700 mb-4">
           Explore real estate opportunities with us?
         </h2>
         <p className="text-gray-600 mb-8">Discover your dream home in India.</p>
@@ -14,7 +19,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-gray-900">
+              <span className="text-2xl font-bold text-slate-700">
                 Estate<span className="font-semibold">Hub</span>
               </span>
             </Link>
@@ -35,7 +40,7 @@ const Footer = () => {
 
           {FOOTER_LINKS.map((column, index) => (
             <div key={index}>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold text-slate-700 mb-4">
                 {column.title}
               </h3>
               <ul className="space-y-2">
@@ -54,7 +59,7 @@ const Footer = () => {
           ))}
 
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            <h3 className="text-lg font-semibold text-slate-700 mb-4">
               {FOOTER_CONTACT_INFO.title}
             </h3>
             {FOOTER_CONTACT_INFO.links.map((link, index) => (
@@ -90,12 +95,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-const FooterColumn = ({ title, children }) => {
-  return (
-    <div className="flex flex-col gap-5">
-      <h4 className="bold-18 whitespace-nowrap">{title}</h4>
-      {children}
-    </div>
-  );
-};

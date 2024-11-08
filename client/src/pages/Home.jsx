@@ -152,9 +152,11 @@ export default function Home() {
           </div>
         )}
       </div>
-      <Blogs />
-      <div className="max-padd-container py16 overflow-x-hidden">
-        <img src={bannerImg} alt="" />
+      <div className="max-w-5xl mx-auto px-4 ">
+        <Blogs />
+        <div className="max-padd-container py-4 overflow-x-hidden">
+          <img src={bannerImg} alt="" />
+        </div>
       </div>
       <Footer />
     </div>
