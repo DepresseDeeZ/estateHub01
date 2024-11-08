@@ -5,6 +5,9 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
+import Blogs from "../components/Blogs";
+import bannerImg from "../assets/banner.png";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
@@ -149,6 +152,11 @@ export default function Home() {
           </div>
         )}
       </div>
+      <Blogs />
+      <div className="max-padd-container py16 overflow-x-hidden">
+        <img src={bannerImg} alt="" />
+      </div>
+      <Footer />
     </div>
   );
 }

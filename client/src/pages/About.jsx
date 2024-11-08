@@ -1,4 +1,4 @@
-import React from "react";
+import Aboutus from "../components/Aboutus";
 
 export default function About() {
   return (
@@ -26,6 +26,10 @@ export default function About() {
         should be an exciting and rewarding experience, and we are dedicated to
         making that a reality for each and every one of our clients.
       </p>
+
+      <div>
+        <Aboutus />
+      </div>
     </div>
   );
 }
