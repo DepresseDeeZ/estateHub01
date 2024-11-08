@@ -1,0 +1,122 @@
+@import "../../responsive.scss";
+
+.homePage {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  .textContainer {
+    flex: 3;
+
+    .wrapper {
+      padding-right: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 40px;
+      height: 100%;
+
+      @include lg {
+        padding-right: 50px;
+      }
+
+      @include md {
+        padding: 0 30px;
+      }
+
+      @include sm {
+        justify-content: flex-start;
+        padding-top: 100px;
+      }
+
+      .title {
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #2c3e50;  /* New title color */
+
+        @include lg {
+          font-size: 42px;
+        }
+
+        @include md {
+          font-size: 36px;
+        }
+      }
+
+      .description {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #7f8c8d;  /* New description color */
+        font-family: 'Arial', sans-serif;  /* New font style */
+
+        @include md {
+          font-size: 16px;
+        }
+      }
+
+      .boxes {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+
+        @include sm {
+          display: none;
+        }
+
+        .box {
+          text-align: center;
+
+          h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #34495e;  /* New box title color */
+
+            @include lg {
+              font-size: 32px;
+            }
+          }
+
+          h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #95a5a6;  /* New box description color */
+            font-family: 'Verdana', sans-serif;  /* New font style */
+
+            @include lg {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    background-color: #f7f9f9;  /* New background color */
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include md {
+      display: none;
+    }
+
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+
+      @include lg {
+        width: 105%;
+      }
+    }
+  }
+}
+
+#about {
+  @include sm {
+    padding-top: 300px;
+  }
+}
