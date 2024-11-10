@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   FOOTER_LINKS,
@@ -7,6 +7,28 @@ import {
 } from "../components/properties/data";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async () => {
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setMessage("Subscription successful!");
+        setEmail(""); // Clear the email input
+      } else {
+        setMessage("Subscription failed. Please try again.");
+      }
+    } catch (error) {
+      setMessage("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <footer className="bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -29,13 +51,19 @@ const Footer = () => {
             <div className="flex">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 className="flex-grow px-4 py-2 rounded-l-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
               />
-              <button className="bg-primary text-white px-6 py-2 rounded-r-full hover:bg-primary-dark transition duration-300">
+              <button
+                onClick={handleSubscribe}
+                className="bg-primary text-white px-6 py-2 rounded-r-full hover:bg-primary-dark transition duration-300"
+              >
                 Subscribe
               </button>
             </div>
+            {message && <p className="text-green-500 mt-2">{message}</p>}
           </div>
 
           {FOOTER_LINKS.map((column, index) => (
@@ -47,10 +75,10 @@ const Footer = () => {
                 {column.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
                     <Link
-                      to="/"
+                      to={link.url}
                       className="text-gray-600 hover:text-gray-900 transition duration-300"
                     >
-                      {link}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -78,13 +106,15 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {SOCIALS.links.map((link, index) => (
-                <Link
+                <a
                   key={index}
-                  to="/"
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition duration-300"
                 >
                   {link.icon}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
