@@ -1,6 +1,6 @@
 # EstateHub
 
-## Demo
+### Demo
 [EstateHub](https://estatehub-qdvv.onrender.com)
 
 Welcome to **EstateHub**! This project aims to create a dynamic and user-friendly online platform for property listings and transactions. EstateHub is designed to cater to real estate agents, property sellers, and potential buyers or renters, providing an intuitive interface for seamless interaction.
